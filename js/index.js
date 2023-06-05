@@ -1,4 +1,4 @@
-let myLibrary = JSON.parse(localStorage.getItem("myLibrary")) || [
+let myLibrary = [
 
     {
         title: "Bleach",
@@ -12,6 +12,8 @@ let myLibrary = JSON.parse(localStorage.getItem("myLibrary")) || [
     }
 
 ];
+
+const libraryToJSON = JSON.stringify(myLibrary)
 
 function Book(title, author, pages) {
     this.title = title,
@@ -27,7 +29,7 @@ function addBookToLibrary () {
     const newBook = new Book(title, author, pages)
     console.log(newBook)
     myLibrary.push(newBook)
-    localStorage.setItem("myLibrary", JSON.stringify(myLibrary))
+    localStorage.setItem("myLibrary", libraryToJSON)
     console.log(myLibrary)
 }
 
